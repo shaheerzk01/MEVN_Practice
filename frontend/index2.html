@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="styles.css">
+    <title>DashBoard</title>
+</head>
+<body>
+    <div id="app1" class="container mt-4">
+        <section class="py-4 py-xl-5">
+            <div class="container">
+                <div class="border rounded border-0 border-primary shadow d-flex flex-column justify-content-between flex-lg-row p-4 p-md-5">
+                    <div class="pb-2 pb-lg-1">
+                        <h2 class="fw-bold mb-2">User Informations</h2>
+                        <p class="mb-0">More user can be add in this application</p>
+                    </div>
+                    <div class="my-2"><a class="btn btn-primary fs-5 link-light bg-primary py-2 px-4" role="button" href="index.html">Add User</a></div>
+                </div>
+            </div>
+        </section>
+        <table class="table table-bordered table-hover">
+            <thead class="thead-light">
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Skills</th>
+                    <th>Action</th>
+                  </tr>
+            </thead>
+            <tbody>
+                <tr v-for="(user, index) in users" :key="user._id">
+                    <td>{{ user.name }}</td>
+                    <td>{{ user.email }}</td>
+                    <td>{{ user.phoneNumber }}</td>
+                    <td>{{ user.skills.join(', ') }}</td>
+                    <td><button class="btn btn-danger" @click="deleteUser(index)">Delete</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <script src="main.js"></script>
+</body>
+</html>
+
+
+
+
